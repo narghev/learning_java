@@ -23,6 +23,10 @@ public class GameOfLife extends JFrame implements ActionListener {
         for (JButton controlButton : ControlPanel.controls)
             controlButton.addActionListener(this);
 
+        for (LifeButton[] cellRow : ButtonPanel.cells)
+                for (LifeButton cell : cellRow)
+                    cell.addActionListener(this);
+
         add(ButtonPanel);
         add(ControlPanel);
 
@@ -32,8 +36,8 @@ public class GameOfLife extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e){
-        JButton clicketButton = (JButton)e.getSource();
-        String clickedButtonText = clicketButton.getText();
+        JButton clickedButton = (JButton)e.getSource();
+        String clickedButtonText = clickedButton.getText();
         
         switch (clickedButtonText){
             case "Reset":
@@ -51,6 +55,8 @@ public class GameOfLife extends JFrame implements ActionListener {
                 break;
 
             default:
+                LifeButton clickedLifeButton = (LifeButton)e.getSource();
+                clickedLifeButton.setAlive(!clickedLifeButton.isAlive());
                 break;
         }
     }

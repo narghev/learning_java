@@ -5,13 +5,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LifeButton extends JButton implements ActionListener {
+public class LifeButton extends JButton {
     public LifeButton(){
         super();
         setBackground(Color.BLACK);
         setOpaque(true);
         setBorderPainted(false);
-        addActionListener(this);
     }
 
     public boolean isAlive(){
@@ -20,9 +19,5 @@ public class LifeButton extends JButton implements ActionListener {
 
     public void setAlive(boolean alive){
         setBackground(alive ? Color.black : Color.white);
-    }
-
-    public void actionPerformed(ActionEvent e){
-        setAlive(!isAlive());
     }
 }
