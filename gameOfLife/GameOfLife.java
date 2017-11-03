@@ -54,6 +54,10 @@ public class GameOfLife extends JFrame implements ActionListener {
                     }
                 break;
 
+            case "Step":
+                ButtonPanel.handleClick();
+                break;
+
             default:
                 LifeButton clickedLifeButton = (LifeButton)e.getSource();
                 clickedLifeButton.setAlive(!clickedLifeButton.isAlive());
