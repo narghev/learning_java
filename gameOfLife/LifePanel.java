@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 public class LifePanel extends JPanel {
 

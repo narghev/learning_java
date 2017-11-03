@@ -7,17 +7,21 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 public class GameOfLife extends JFrame {
 
-    private LifePanel ButtonPannel = new LifePanel(5);
+    private LifePanel ButtonPanel = new LifePanel(5);
+    private ControlPanel ControlPanel = new ControlPanel();
 
     public GameOfLife(){
         super();
+        setLayout(new GridLayout());
 
-        add(ButtonPannel);
+        add(ButtonPanel);
+        add(ControlPanel);
 
-        setSize(800, 800);
+        setSize(800, 300);
         setResizable(true);
         setVisible(true);
     }
