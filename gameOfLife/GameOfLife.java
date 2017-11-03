@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
+import java.lang.Math;
+
 public class GameOfLife extends JFrame implements ActionListener {
 
     private LifePanel ButtonPanel = new LifePanel(5);
@@ -39,7 +41,15 @@ public class GameOfLife extends JFrame implements ActionListener {
                     for (LifeButton cell : cellRow)
                         cell.setAlive(false);
                 break;
-                
+
+            case "Random":
+                for (LifeButton[] cellRow : ButtonPanel.cells)
+                    for (LifeButton cell : cellRow){
+                        double n = Math.random();
+                        cell.setAlive(n <= 0.25);
+                    }
+                break;
+
             default:
                 break;
         }
