@@ -8,8 +8,8 @@ public class MainFrame extends JFrame implements ActionListener {
     private BirdArea smile = new BirdArea('r', 'E', true);
     private BirdArea sing = new BirdArea('4', 'j', false);
     private JButton start = new JButton("Start");
-    private JButton slow = new JButton("Slow");
-    private JButton speed = new JButton("Speed");
+    private JButton slow = new JButton("Slow Down");
+    private JButton speed = new JButton("Speed Up");
     private JButton stop = new JButton("Stop");
 
     public MainFrame(){
@@ -22,6 +22,9 @@ public class MainFrame extends JFrame implements ActionListener {
         speed.addActionListener(this);
         stop.addActionListener(this);
 
+        stop.setEnabled(false);
+        start.setEnabled(true);
+
         add(smile);
         add(sing);
         add(start);
@@ -29,7 +32,7 @@ public class MainFrame extends JFrame implements ActionListener {
         add(speed);
         add(stop);
 
-        setSize(500,500);
+        setSize(500,70);
         setVisible(true);
     }
 
@@ -43,12 +46,28 @@ public class MainFrame extends JFrame implements ActionListener {
 
         switch (clickedButtonText){
             case "Start":
+                stop.setEnabled(true);
+                start.setEnabled(false);
+
                 smile.start();
                 sing.start();
             break;
             case "Stop":
+                stop.setEnabled(false);
+                start.setEnabled(true);
+
                 smile.stop();
                 sing.stop();
+            break;
+
+            case "Slow Down":
+                smile.slow_down();
+                sing.slow_down();
+            break;
+
+            case "Speed Up":
+                smile.speed_up();
+                sing.speed_up();
             break;
         }
     }
